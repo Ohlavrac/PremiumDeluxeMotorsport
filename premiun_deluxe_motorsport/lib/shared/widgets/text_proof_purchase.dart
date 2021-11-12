@@ -10,7 +10,7 @@ class TextProofPurchase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       label,
-      style: TextStyles.title_comprovante,
+      style: TextStyles.titleComprovante,
     );
   }
 }

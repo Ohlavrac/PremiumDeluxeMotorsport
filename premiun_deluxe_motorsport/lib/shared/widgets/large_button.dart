@@ -17,7 +17,7 @@ class LargeButon extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           label,
-          style: TextStyles.title_buttons,
+          style: TextStyles.titleButtons,
         ),
         style: ElevatedButton.styleFrom(
           primary: AppColors.primary,

@@ -16,7 +16,7 @@ class SmallButtonMainMenu extends StatelessWidget {
       height: 146,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: AppColors.menu_buttom,
+          primary: AppColors.menuButtom,
           elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
@@ -31,7 +31,7 @@ class SmallButtonMainMenu extends StatelessWidget {
             SizedBox(height: 25,),
             Text(
               label,
-              style: TextStyles.title_semiBold
+              style: TextStyles.titleSemiBold
             ),
           ],
         ),

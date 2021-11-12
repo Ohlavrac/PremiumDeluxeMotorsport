@@ -12,7 +12,7 @@ class MainMenu extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.menu_buttom,
+        backgroundColor: AppColors.menuButtom,
         title: Image.asset('images/logo.png'),
         centerTitle: true,
       ),
@@ -49,7 +49,7 @@ class MainMenu extends StatelessWidget {
                     height: 304,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.menu_buttom,
+                        primary: AppColors.menuButtom,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -68,7 +68,7 @@ class MainMenu extends StatelessWidget {
                           SizedBox(height: 130,),
                           Text(
                             "Lista de Carros",
-                            style: TextStyles.title_semiBold
+                            style: TextStyles.titleSemiBold
                           ),
                         ],              
                       ),
@@ -84,7 +84,7 @@ class MainMenu extends StatelessWidget {
                     height: 90,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: AppColors.menu_buttom,
+                        primary: AppColors.menuButtom,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -101,7 +101,7 @@ class MainMenu extends StatelessWidget {
                         children: [
                           Text(
                             "Calculadora de Desconto",
-                            style: TextStyles.title_semiBold
+                            style: TextStyles.titleSemiBold
                           ),
                           Icon(Icons.calculate, size: 74),
                         ],

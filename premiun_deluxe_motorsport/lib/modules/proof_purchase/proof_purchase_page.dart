@@ -16,7 +16,7 @@ class ProofPurchasePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.menu_buttom,
+        backgroundColor: AppColors.menuButtom,
         title: Image.asset('images/logo.png'),
         centerTitle: true,
       ),
@@ -44,7 +44,7 @@ class ProofPurchasePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     
                   ),
-                  color: AppColors.menu_buttom,
+                  color: AppColors.menuButtom,
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Column(
