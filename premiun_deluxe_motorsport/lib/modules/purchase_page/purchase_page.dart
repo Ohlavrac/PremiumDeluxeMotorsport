@@ -33,7 +33,7 @@ class _PurchasePageState extends State<PurchasePage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.menu_buttom,
+        backgroundColor: AppColors.menuButtom,
         title: Image.asset('images/logo.png'),
         centerTitle: true,
       ),
@@ -53,43 +53,43 @@ class _PurchasePageState extends State<PurchasePage> {
               ),
               Text(
                 "Falta pouco para pegar seu carro novo",
-                style: TextStyles.title_sec,
+                style: TextStyles.titleSec,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 40, bottom: 20),
-                child: InputWidget(label: "Comprador", onChanged: (value_buyer) {
-                    print(value_buyer);
-                    comprador.buyer = value_buyer;
+                child: InputWidget(label: "Comprador", onChanged: (valueBuyer) {
+                    print(valueBuyer);
+                    comprador.buyer = valueBuyer;
                   },
                   
                 ),
               ),
-              InputNumberWidget(label: "Passaporte", onChanged: (value_passport) {
-                  print(value_passport);
-                  comprador.passport = int.parse(value_passport);
+              InputNumberWidget(label: "Passaporte", onChanged: (valuePassport) {
+                  print(valuePassport);
+                  comprador.passport = int.parse(valuePassport);
                 },
                 
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: InputWidget(label: "Veiculo", onChanged: (value_vehicle) {
-                    print(value_vehicle);
-                    comprador.vehicle = value_vehicle;
+                child: InputWidget(label: "Veiculo", onChanged: (valueVehicle) {
+                    print(valueVehicle);
+                    comprador.vehicle = valueVehicle;
                   },
                   
                 ),
               ),
-              InputNumberWidget(label: "Desconto", onChanged: (value_discount) {
-                  print(value_discount);
-                  comprador.discount = int.parse(value_discount);
+              InputNumberWidget(label: "Desconto", onChanged: (valueDiscount) {
+                  print(valueDiscount);
+                  comprador.discount = int.parse(valueDiscount);
                 },
                 
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 60),
-                child: InputWidget(label: "Vendedor", onChanged: (value_salesman) {
-                    print(value_salesman);
-                    comprador.salesman = value_salesman;
+                child: InputWidget(label: "Vendedor", onChanged: (valueSalesman) {
+                    print(valueSalesman);
+                    comprador.salesman = valueSalesman;
                    
                   },
                   

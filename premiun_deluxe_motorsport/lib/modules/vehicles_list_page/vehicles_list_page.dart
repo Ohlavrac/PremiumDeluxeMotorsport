@@ -14,27 +14,27 @@ class VehiclesListPage extends StatefulWidget {
 }
 
 class _VehiclesListPageState extends State<VehiclesListPage> {
-  final list_vehicles = VehicleRepository.list_vehicles;
-  List<Vehicle> _search_vehicle = [];
+  final listVehicles = VehicleRepository.listVehicles;
+  List<Vehicle> searchVehicle = [];
 
   void _runSearch(String value) {
     List<Vehicle> results = [];
 
     if (value.isEmpty) {
-      results = list_vehicles;
+      results = listVehicles;
     } else {
-      results = list_vehicles.where((vehicle) => vehicle.name.contains(value)).toList();
+      results = listVehicles.where((vehicle) => vehicle.name.toLowerCase().contains(value.toLowerCase())).toList();
     }
 
     setState(() {
-      _search_vehicle = results;
+      searchVehicle = results;
     });
   }
 
   @override
   void initState() {
     // TODO: implement initState
-    _search_vehicle = list_vehicles;
+    searchVehicle = listVehicles;
     super.initState();
   }
 
@@ -43,7 +43,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.menu_buttom,
+        backgroundColor: AppColors.menuButtom,
         title: Image.asset('images/logo.png'),
         centerTitle: true,
       ),
@@ -60,7 +60,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                 decoration: InputDecoration(
                   label: Text(
                     "Procurar",
-                    style: TextStyles.title_input,
+                    style: TextStyles.titleInput,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -76,11 +76,11 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                   ),
                   suffix: Icon(Icons.search, color: AppColors.secondary,),
                 ),
-                style: TextStyles.title_input,
+                style: TextStyles.titleInput,
               ),
             ),
             Expanded(
-              child: _search_vehicle.isNotEmpty 
+              child: searchVehicle.isNotEmpty 
               ? ListView.builder(
                 itemBuilder: (BuildContext context, int vehicle) {
                   return Padding(
@@ -90,9 +90,9 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                         Container(
                           width: 360,
                           height: 170,
-                          decoration: BoxDecoration(color: AppColors.menu_buttom, borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)), 
+                          decoration: BoxDecoration(color: AppColors.menuButtom, borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)), 
                             image: DecorationImage(
-                              image: NetworkImage(_search_vehicle[vehicle].image),
+                              image: NetworkImage(searchVehicle[vehicle].image),
                               fit: BoxFit.cover
                             ),
                           ), 
@@ -102,7 +102,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                           height: 75,
                           
                           decoration: BoxDecoration(
-                            color: AppColors.menu_buttom,
+                            color: AppColors.menuButtom,
                             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                           ),
                           child: Padding(
@@ -117,19 +117,19 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                                   children: [
                                     Text(
                                       //list_vehicles[vehicle].name,
-                                      _search_vehicle[vehicle].name,
-                                      style: TextStyles.title_comprovante,
+                                      searchVehicle[vehicle].name,
+                                      style: TextStyles.titleComprovante,
                                     ),
                                     Text(
-                                      "${_search_vehicle[vehicle].capacity.toString()} Kg",
-                                      style: TextStyles.title_comprovante,
+                                      "${searchVehicle[vehicle].capacity.toString()} Kg",
+                                      style: TextStyles.titleComprovante,
                                     ),
                                     
                                   ],
                                 ),
                                 Text(
-                                  "${_search_vehicle[vehicle].price.toString()} \$",
-                                  style: TextStyles.title_comprovante,
+                                  "${searchVehicle[vehicle].price.toString()} \$",
+                                  style: TextStyles.titleComprovante,
                                 ),
                               ],
                             ),
@@ -140,11 +140,11 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                   );
                 },
                 //separatorBuilder: (_, ____) => Divider(),
-                itemCount: _search_vehicle.length
+                itemCount: searchVehicle.length
               )
               : Text(
                 "Carro não encontrado",
-                style: TextStyles.title_input
+                style: TextStyles.titleInput
               )
             ),
           ],

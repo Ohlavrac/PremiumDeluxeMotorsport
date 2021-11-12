@@ -21,7 +21,7 @@ class InputWidget extends StatelessWidget {
         decoration: InputDecoration(
           label: Text(
             label,
-            style: TextStyles.title_input,
+            style: TextStyles.titleInput,
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -36,7 +36,7 @@ class InputWidget extends StatelessWidget {
             borderSide: BorderSide(color: Colors.white)
           ),
         ),
-        style: TextStyles.title_input,
+        style: TextStyles.titleInput,
       ),
     );
   }

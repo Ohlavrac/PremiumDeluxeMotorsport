@@ -8,7 +8,7 @@ import 'package:premiun_deluxe_motorsport/services/gta_api.dart';
 class VehicleRepository extends ChangeNotifier{
 
 
-  static List<Vehicle> list_vehicles = [
+  static List<Vehicle> listVehicles = [
     Vehicle(name: "Adder", price: 700000.0, capacity: 20, image: "https://www.gtabase.com/images/jch-optimize/ng/images_gta-5_vehicles_super_main_adder.webp"),
     Vehicle(name: "Asbo", price: 60000.0, capacity: 30, image: "https://www.gtabase.com/images/gta-5/vehicles/compacts/main/asbo.jpg"),
     Vehicle(name: "Asea", price: 50000.0, capacity: 30, image: "https://www.gtabase.com/images/gta-5/vehicles/sedans/main/asea.jpg"),

@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
         children: [
           Text(
             "Premiun Deluxe",
-            style: TextStyles.title_splashpage,
+            style: TextStyles.titleSplashpage,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 1, bottom: 1),
@@ -28,7 +28,7 @@ class SplashPage extends StatelessWidget {
           ),
           Text(
             "Motorsports",
-            style: TextStyles.title2_splashpage,
+            style: TextStyles.title2Splashpage,
           ),
         ],
       ),
