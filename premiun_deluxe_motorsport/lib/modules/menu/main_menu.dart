@@ -28,7 +28,6 @@ class MainMenu extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SmallButtonMainMenu(label: "Comprar", icon: const Icon(Icons.car_rental, color: AppColors.secondary, size: 74,), onPressed: () {
-                        print("OLA");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
