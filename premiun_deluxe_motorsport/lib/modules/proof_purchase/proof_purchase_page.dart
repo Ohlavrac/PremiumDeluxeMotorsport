@@ -35,7 +35,7 @@ class ProofPurchasePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 40, bottom: 120),
-              child: Container(
+              child: SizedBox(
                 height: 350,
                 width: 385,
                 child: Card(

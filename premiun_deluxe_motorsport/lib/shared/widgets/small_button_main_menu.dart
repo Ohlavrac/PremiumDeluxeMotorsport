@@ -11,7 +11,7 @@ class SmallButtonMainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 180,
       height: 146,
       child: ElevatedButton(

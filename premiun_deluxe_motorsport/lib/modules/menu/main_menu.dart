@@ -43,7 +43,7 @@ class MainMenu extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Container(
+                  SizedBox(
                     width: 180,
                     height: 304,
                     child: ElevatedButton(
@@ -78,7 +78,7 @@ class MainMenu extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
-              Container(
+              SizedBox(
                     width: 390,
                     height: 90,
                     child: ElevatedButton(
