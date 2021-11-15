@@ -11,7 +11,7 @@ class SmallButtonMainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 180,
       height: 146,
       child: ElevatedButton(
@@ -28,7 +28,7 @@ class SmallButtonMainMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             icon,
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             Text(
               label,
               style: TextStyles.titleSemiBold

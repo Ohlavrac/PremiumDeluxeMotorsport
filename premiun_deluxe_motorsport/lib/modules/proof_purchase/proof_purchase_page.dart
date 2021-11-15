@@ -35,7 +35,7 @@ class ProofPurchasePage extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 40, bottom: 120),
-              child: Container(
+              child: SizedBox(
                 height: 350,
                 width: 385,
                 child: Card(
@@ -57,14 +57,14 @@ class ProofPurchasePage extends StatelessWidget {
                           child: TextProofPurchase(label: "Passaporte: ${comprandov.passport}"),
                         ),
                         TextProofPurchase(label: "Veículo: ${comprandov.vehicle}"),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5, bottom: 5),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 5, bottom: 5),
                           child: TextProofPurchase(label: "Valor pago: "),
                         ),
                         TextProofPurchase(label: "Desconto aplicado: ${comprandov.discount}"),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, bottom: 5),
-                          child: TextProofPurchase(label: "Dia e hora: ${now}"),
+                          child: TextProofPurchase(label: "Dia e hora: $now"),
                         ),
                         TextProofPurchase(label: "Vendedor: ${comprandov.salesman}"),
                       ],

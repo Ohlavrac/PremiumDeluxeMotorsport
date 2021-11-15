@@ -10,7 +10,7 @@ class InputNumberWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 385,
       height: 60,
       child: TextFormField(
@@ -23,15 +23,15 @@ class InputNumberWidget extends StatelessWidget {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
         ),
         style: TextStyles.titleInput,

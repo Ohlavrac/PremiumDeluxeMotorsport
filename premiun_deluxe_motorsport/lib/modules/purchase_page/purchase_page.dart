@@ -58,14 +58,12 @@ class _PurchasePageState extends State<PurchasePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 40, bottom: 20),
                 child: InputWidget(label: "Comprador", onChanged: (valueBuyer) {
-                    print(valueBuyer);
                     comprador.buyer = valueBuyer;
                   },
                   
                 ),
               ),
               InputNumberWidget(label: "Passaporte", onChanged: (valuePassport) {
-                  print(valuePassport);
                   comprador.passport = int.parse(valuePassport);
                 },
                 
@@ -73,14 +71,12 @@ class _PurchasePageState extends State<PurchasePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
                 child: InputWidget(label: "Veiculo", onChanged: (valueVehicle) {
-                    print(valueVehicle);
                     comprador.vehicle = valueVehicle;
                   },
                   
                 ),
               ),
               InputNumberWidget(label: "Desconto", onChanged: (valueDiscount) {
-                  print(valueDiscount);
                   comprador.discount = int.parse(valueDiscount);
                 },
                 
@@ -88,7 +84,6 @@ class _PurchasePageState extends State<PurchasePage> {
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 60),
                 child: InputWidget(label: "Vendedor", onChanged: (valueSalesman) {
-                    print(valueSalesman);
                     comprador.salesman = valueSalesman;
                    
                   },

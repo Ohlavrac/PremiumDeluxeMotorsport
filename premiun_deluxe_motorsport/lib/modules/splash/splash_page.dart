@@ -16,8 +16,8 @@ class SplashPage extends StatelessWidget {
             "Premiun Deluxe",
             style: TextStyles.titleSplashpage,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 1, bottom: 1),
+          const Padding(
+            padding: EdgeInsets.only(top: 1, bottom: 1),
             child: Divider(
               color: AppColors.secondary,
               height: 1,
