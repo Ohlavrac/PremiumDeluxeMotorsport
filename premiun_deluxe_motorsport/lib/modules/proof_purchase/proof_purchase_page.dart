@@ -64,7 +64,7 @@ class ProofPurchasePage extends StatelessWidget {
                         TextProofPurchase(label: "Desconto aplicado: ${comprandov.discount}"),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, bottom: 5),
-                          child: TextProofPurchase(label: "Dia e hora: ${now}"),
+                          child: TextProofPurchase(label: "Dia e hora: $now"),
                         ),
                         TextProofPurchase(label: "Vendedor: ${comprandov.salesman}"),
                       ],
