@@ -25,15 +25,15 @@ class InputWidget extends StatelessWidget {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Colors.white)
+            borderSide: const BorderSide(color: Colors.white)
           ),
         ),
         style: TextStyles.titleInput,

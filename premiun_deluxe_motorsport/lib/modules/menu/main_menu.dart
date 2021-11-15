@@ -27,18 +27,18 @@ class MainMenu extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SmallButtonMainMenu(label: "Comprar", icon: Icon(Icons.car_rental, color: AppColors.secondary, size: 74,), onPressed: () {
+                      SmallButtonMainMenu(label: "Comprar", icon: const Icon(Icons.car_rental, color: AppColors.secondary, size: 74,), onPressed: () {
                         print("OLA");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => PurchasePage(),
+                            builder: (_) => const PurchasePage(),
                           )
                         );
                       }),
                       Padding(
                         padding: const EdgeInsets.only(top: 14),
-                        child: SmallButtonMainMenu(label: "Historico", icon: Icon(Icons.history, color: AppColors.secondary, size: 74,), onPressed: () {
+                        child: SmallButtonMainMenu(label: "Historico", icon: const Icon(Icons.history, color: AppColors.secondary, size: 74,), onPressed: () {
 
                         },),
                       ),
@@ -64,8 +64,8 @@ class MainMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.list, color: AppColors.secondary, size: 102),
-                          SizedBox(height: 130,),
+                          const Icon(Icons.list, color: AppColors.secondary, size: 102),
+                          const SizedBox(height: 130,),
                           Text(
                             "Lista de Carros",
                             style: TextStyles.titleSemiBold
@@ -76,7 +76,7 @@ class MainMenu extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 14,
               ),
               Container(
@@ -103,7 +103,7 @@ class MainMenu extends StatelessWidget {
                             "Calculadora de Desconto",
                             style: TextStyles.titleSemiBold
                           ),
-                          Icon(Icons.calculate, size: 74),
+                          const Icon(Icons.calculate, size: 74),
                         ],
                       ),
                     ),

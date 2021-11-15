@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: "Premiun Deluxe Motorsport",
       initialRoute: "/main_menu",
       routes: {
-        "/splash": (context) => SplashPage(),
-        "/main_menu": (context) => MainMenu(),
-        "/purchase_page": (context) => PurchasePage(),
-        "/vehicles_list": (context) => VehiclesListPage(),
+        "/splash": (context) => const SplashPage(),
+        "/main_menu": (context) => const MainMenu(),
+        "/purchase_page": (context) => const PurchasePage(),
+        "/vehicles_list": (context) => const VehiclesListPage(),
       },
     );
   }

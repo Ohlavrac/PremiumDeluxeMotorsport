@@ -28,7 +28,7 @@ class SmallButtonMainMenu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             icon,
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
             Text(
               label,
               style: TextStyles.titleSemiBold

@@ -67,14 +67,14 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white)),
+                        borderSide: const BorderSide(color: Colors.white)),
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white)),
+                        borderSide: const BorderSide(color: Colors.white)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white)),
-                    suffix: Icon(
+                        borderSide: const BorderSide(color: Colors.white)),
+                    suffix: const Icon(
                       Icons.search,
                       color: AppColors.secondary,
                     ),
@@ -95,7 +95,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                                     height: 170,
                                     decoration: BoxDecoration(
                                       color: AppColors.menuButtom,
-                                      borderRadius: BorderRadius.only(
+                                      borderRadius: const BorderRadius.only(
                                           topLeft: Radius.circular(10),
                                           topRight: Radius.circular(10)),
                                       image: DecorationImage(
@@ -107,7 +107,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                                   Container(
                                     width: 360,
                                     height: 75,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: AppColors.menuButtom,
                                       borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(10),

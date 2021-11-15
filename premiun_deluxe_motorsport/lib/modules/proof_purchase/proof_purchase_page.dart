@@ -57,8 +57,8 @@ class ProofPurchasePage extends StatelessWidget {
                           child: TextProofPurchase(label: "Passaporte: ${comprandov.passport}"),
                         ),
                         TextProofPurchase(label: "Veículo: ${comprandov.vehicle}"),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5, bottom: 5),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 5, bottom: 5),
                           child: TextProofPurchase(label: "Valor pago: "),
                         ),
                         TextProofPurchase(label: "Desconto aplicado: ${comprandov.discount}"),
