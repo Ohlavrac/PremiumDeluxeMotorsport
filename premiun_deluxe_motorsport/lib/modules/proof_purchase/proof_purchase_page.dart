@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:premiun_deluxe_motorsport/models/comprando.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_colors.dart';
-import 'package:premiun_deluxe_motorsport/shared/themes/app_text_styles.dart';
 import 'package:premiun_deluxe_motorsport/shared/widgets/large_button.dart';
+import 'package:premiun_deluxe_motorsport/shared/themes/app_text_styles.dart';
 import 'package:premiun_deluxe_motorsport/shared/widgets/text_proof_purchase.dart';
+import 'package:premiun_deluxe_motorsport/shared/repositories/vehicle_repository.dart';
 
 class ProofPurchasePage extends StatelessWidget {
   Comprando comprandov;
@@ -59,9 +60,9 @@ class ProofPurchasePage extends StatelessWidget {
                         TextProofPurchase(label: "Veículo: ${comprandov.vehicle}"),
                         const Padding(
                           padding: EdgeInsets.only(top: 5, bottom: 5),
-                          child: TextProofPurchase(label: "Valor pago: "),
+                          child: TextProofPurchase(label: "Valor pago: "), // TODO: Confirmar o valor pago do veículo registrado com o desconto incluso.
                         ),
-                        TextProofPurchase(label: "Desconto aplicado: ${comprandov.discount}"),
+                        TextProofPurchase(label: "Desconto aplicado: ${comprandov.discount}%"),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, bottom: 5),
                           child: TextProofPurchase(label: "Dia e hora: $now"),
