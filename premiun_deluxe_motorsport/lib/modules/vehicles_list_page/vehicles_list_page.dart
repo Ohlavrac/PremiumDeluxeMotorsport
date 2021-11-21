@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:premiun_deluxe_motorsport/models/vehicle.dart';
-import 'package:premiun_deluxe_motorsport/services/gta_api.dart';
 import 'package:premiun_deluxe_motorsport/shared/repositories/vehicle_repository.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_colors.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_text_styles.dart';
@@ -19,6 +18,7 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
 
   void _runSearch(String value) {
     List<Vehicle> results = [];
+    // TODO: Criar uma forma de ordenar por nome/preço/porta-malas etc.
 
     if (value.isEmpty) {
       results = listVehicles;
