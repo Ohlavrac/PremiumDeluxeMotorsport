@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:premiun_deluxe_motorsport/modules/add_vehicle_page/add_vehicle_page.dart';
 import 'package:premiun_deluxe_motorsport/modules/menu/main_menu.dart';
 import 'package:premiun_deluxe_motorsport/modules/proof_purchase/proof_purchase_page.dart';
 import 'package:premiun_deluxe_motorsport/modules/purchase_page/purchase_page.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         "/main_menu": (context) => const MainMenu(),
         "/purchase_page": (context) => const PurchasePage(),
         "/vehicles_list": (context) => const VehiclesListPage(),
+        "/add_vehicle": (context) =>  AddVehiclePage(),
       },
     );
   }

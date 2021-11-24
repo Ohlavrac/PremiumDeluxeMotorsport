@@ -1,10 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:premiun_deluxe_motorsport/models/vehicle.dart';
-import 'package:premiun_deluxe_motorsport/services/gta_api.dart';
-import 'package:premiun_deluxe_motorsport/shared/repositories/vehicle_repository.dart';
+import 'package:premiun_deluxe_motorsport/models/vehicles.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_colors.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_text_styles.dart';
-import 'package:premiun_deluxe_motorsport/shared/widgets/input_widget.dart';
 
 class VehiclesListPage extends StatefulWidget {
   const VehiclesListPage({Key? key}) : super(key: key);
@@ -14,51 +12,39 @@ class VehiclesListPage extends StatefulWidget {
 }
 
 class _VehiclesListPageState extends State<VehiclesListPage> {
-  final listVehicles = VehicleRepository.listVehicles;
-  List<Vehicle> searchVehicle = [];
+  String name = "";
 
-  void _runSearch(String value) {
-    List<Vehicle> results = [];
-
-    if (value.isEmpty) {
-      results = listVehicles;
-    } else {
-      results = listVehicles
-          .where((vehicle) =>
-              vehicle.name.toLowerCase().contains(value.toLowerCase()))
-          .toList();
-    }
-
-    setState(() {
-      searchVehicle = results;
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    searchVehicle = listVehicles;
-    super.initState();
-  }
+  final Stream<QuerySnapshot> vehiclesDB = FirebaseFirestore.instance.collection('vehicles').snapshots();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.background,
-        appBar: AppBar(
-          backgroundColor: AppColors.menuButtom,
-          title: Image.asset('images/logo.png'),
-          centerTitle: true,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            children: [
-              Padding(
+      backgroundColor: AppColors.background,
+      appBar: AppBar(
+        backgroundColor: AppColors.menuButtom,
+        title: Image.asset('images/logo.png'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/add_vehicle");
+            },
+            icon: Icon(Icons.add),
+          )
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+             Padding(
                 padding: const EdgeInsets.only(top: 15, bottom: 15),
                 child: TextField(
                   onChanged: (value) {
-                    _runSearch(value);
+                    setState(() {
+                      name = value;
+                    });
                   },
                   decoration: InputDecoration(
                     label: Text(
@@ -82,82 +68,97 @@ class _VehiclesListPageState extends State<VehiclesListPage> {
                   style: TextStyles.titleInput,
                 ),
               ),
-              Expanded(
-                  child: searchVehicle.isNotEmpty
-                      ? ListView.builder(
-                          itemBuilder: (BuildContext context, int vehicle) {
-                            return Padding(
-                              padding: const EdgeInsets.only(top: 30),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 360,
-                                    height: 170,
-                                    decoration: BoxDecoration(
-                                      color: AppColors.menuButtom,
-                                      borderRadius: const BorderRadius.only(
-                                          topLeft: Radius.circular(10),
-                                          topRight: Radius.circular(10)),
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              searchVehicle[vehicle].image),
-                                          fit: BoxFit.cover),
+            Expanded(
+              child: Container(
+                height: 300,
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: StreamBuilder<QuerySnapshot>(
+                  stream: (name != "" && name != null)
+                  ? FirebaseFirestore.instance
+                    .collection('vehicles')
+                    .where("name", isGreaterThanOrEqualTo: name)
+                    .snapshots()
+                  : vehiclesDB,
+                  builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return Text("Tem Algo errado");
+                    }
+                  
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Text("Carregando");
+                    }
+                  
+                    final data = snapshot.requireData;
+                  
+                    return ListView.builder(
+                      itemCount: data.size,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 360,
+                                height: 170,
+                                decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10)),
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      data.docs[index]['image'],
                                     ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  Container(
-                                    width: 360,
-                                    height: 75,
-                                    decoration: const BoxDecoration(
-                                      color: AppColors.menuButtom,
-                                      borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(10),
-                                          bottomRight: Radius.circular(10)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                ),
+                              ),
+                              Container(
+                                width: 360,
+                                height: 75,
+                                decoration: const BoxDecoration(
+                                  color: AppColors.menuButtom,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10)),
+                                  
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                //list_vehicles[vehicle].name,
-                                                searchVehicle[vehicle].name,
-                                                style:
-                                                    TextStyles.titleComprovante,
-                                              ),
-                                              Text(
-                                                "${searchVehicle[vehicle].capacity.toString()} Kg",
-                                                style:
-                                                    TextStyles.titleComprovante,
-                                              ),
-                                            ],
+                                          Text(
+                                            data.docs[index]['name'],
+                                            style: TextStyles.titleComprovante
                                           ),
                                           Text(
-                                            "${searchVehicle[vehicle].price.toString()} \$",
-                                            style: TextStyles.titleComprovante,
-                                          ),
+                                            "${data.docs[index]['price'].toString()} U\$",
+                                            style: TextStyles.titleComprovante
+                                          )
                                         ],
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
-                            );
-                          },
-                          //separatorBuilder: (_, ____) => Divider(),
-                          itemCount: searchVehicle.length)
-                      : Text("Carro não encontrado",
-                          style: TextStyles.titleInput)),
-            ],
-          ),
-        ));
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                )
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

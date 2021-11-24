@@ -74,7 +74,7 @@ class ProofPurchasePage extends StatelessWidget {
               ),
             ),
             LargeButon(label: "Salvar e Sair", onPressed: () {
-
+              
             })
           ],
         ),

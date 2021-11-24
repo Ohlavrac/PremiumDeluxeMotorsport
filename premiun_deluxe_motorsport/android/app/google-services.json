@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "600824787414",
+    "project_id": "premiumdeluxemotorsport-f3c33",
+    "storage_bucket": "premiumdeluxemotorsport-f3c33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600824787414:android:b71678d885cf81d7a6b477",
+        "android_client_info": {
+          "package_name": "com.example.premiun_deluxe_motorsport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600824787414-44gv2hcf4m1c856rmftm3kumbi6ob33g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbIL2Q8wM2SlbAD8AYpmBaQVHLOoqBnfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600824787414-44gv2hcf4m1c856rmftm3kumbi6ob33g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
