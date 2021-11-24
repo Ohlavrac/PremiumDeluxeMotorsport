@@ -3,10 +3,8 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:premiun_deluxe_motorsport/models/vehicle.dart';
-import 'package:premiun_deluxe_motorsport/services/gta_api.dart';
 
 class VehicleRepository extends ChangeNotifier{
-
 
   static List<Vehicle> listVehicles = [
     Vehicle(name: "testeDeOrdenação", price: 9999999.0, capacity: 999, image: ""), // Objeto puramente pra facilitar o desenvolvimento da ordenação na lista de veículos.

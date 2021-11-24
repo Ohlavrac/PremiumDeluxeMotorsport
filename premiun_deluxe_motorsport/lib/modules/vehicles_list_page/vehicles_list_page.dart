@@ -1,6 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:premiun_deluxe_motorsport/models/vehicles.dart';
+=======
+import 'package:premiun_deluxe_motorsport/models/vehicle.dart';
+import 'package:premiun_deluxe_motorsport/shared/repositories/vehicle_repository.dart';
+>>>>>>> dd3d5696c47989f64eea95695d11fa96138551a6
 import 'package:premiun_deluxe_motorsport/shared/themes/app_colors.dart';
 import 'package:premiun_deluxe_motorsport/shared/themes/app_text_styles.dart';
 
@@ -14,7 +19,34 @@ class VehiclesListPage extends StatefulWidget {
 class _VehiclesListPageState extends State<VehiclesListPage> {
   String name = "";
 
+<<<<<<< HEAD
   final Stream<QuerySnapshot> vehiclesDB = FirebaseFirestore.instance.collection('vehicles').snapshots();
+=======
+  void _runSearch(String value) {
+    List<Vehicle> results = [];
+    // TODO: Criar uma forma de ordenar por nome/preço/porta-malas etc.
+
+    if (value.isEmpty) {
+      results = listVehicles;
+    } else {
+      results = listVehicles
+          .where((vehicle) =>
+              vehicle.name.toLowerCase().contains(value.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      searchVehicle = results;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    searchVehicle = listVehicles;
+    super.initState();
+  }
+>>>>>>> dd3d5696c47989f64eea95695d11fa96138551a6
 
   @override
   Widget build(BuildContext context) {

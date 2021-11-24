@@ -10,14 +10,15 @@ import 'package:premiun_deluxe_motorsport/shared/widgets/input_widget.dart';
 import 'package:premiun_deluxe_motorsport/shared/widgets/large_button.dart';
 
 class PurchasePage extends StatefulWidget {
-  const PurchasePage({ Key? key }) : super(key: key);
+  const PurchasePage({Key? key}) : super(key: key);
 
   @override
   State<PurchasePage> createState() => _PurchasePageState();
 }
 
-class _PurchasePageState extends State<PurchasePage> {
+final listVehicles = VehicleRepository.listVehicles;
 
+class _PurchasePageState extends State<PurchasePage> {
   @override
   Widget build(BuildContext context) {
     Comprando comprador = Comprando();
@@ -25,10 +26,10 @@ class _PurchasePageState extends State<PurchasePage> {
     showProofPurchasePage() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => ProofPurchasePage(comprandov: comprador)),
+        MaterialPageRoute(
+            builder: (_) => ProofPurchasePage(comprandov: comprador)),
       );
     }
-    
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -57,47 +58,75 @@ class _PurchasePageState extends State<PurchasePage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 40, bottom: 20),
-                child: InputWidget(label: "Comprador", onChanged: (valueBuyer) {
+                child: InputWidget(
+                  label: "Comprador",
+                  onChanged: (valueBuyer) {
                     comprador.buyer = valueBuyer;
                   },
-                  
                 ),
               ),
-              InputNumberWidget(label: "Passaporte", onChanged: (valuePassport) {
+              InputNumberWidget(
+                label: "Passaporte",
+                onChanged: (valuePassport) {
                   comprador.passport = int.parse(valuePassport);
                 },
-                
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 20),
-                child: InputWidget(label: "Veiculo", onChanged: (valueVehicle) {
-                    comprador.vehicle = valueVehicle;
-                  },
-                  
-                ),
+                child: InputWidget(
+                    label: "Veiculo",
+                    onChanged: (valueVehicle) {
+                      // Recomendo deixar os prints ai enquanto o alerta não estiver concluído.
+                      print('input=> $valueVehicle');
+                      var vehicleInfos = listVehicles.where((vehicle) => vehicle
+                          .name
+                          .toLowerCase()
+                          .contains(valueVehicle.toLowerCase()));
+                      var numberVehicle = listVehicles.indexWhere((i) => i.name.toLowerCase() == valueVehicle.toLowerCase());
+                      print('numberVehicle=> $numberVehicle');
+                      var nameVehicle = listVehicles[numberVehicle].name;
+                      print('nomeNaLista=> $nameVehicle');
+                      if (vehicleInfos.isEmpty) {
+                        // TODO: Criar alerta sobre veículo inexistente.
+                        print('$vehicleInfos não está registrado.');
+                      } else {
+                        comprador.vehicle = valueVehicle;
+                      }
+                    }),
               ),
-              InputNumberWidget(label: "Desconto", onChanged: (valueDiscount) {
-                  comprador.discount = int.parse(valueDiscount);
+              InputNumberWidget(
+                label: "Desconto",
+                onChanged: (valueDiscount) {
+                  if (int.parse(valueDiscount) >= 100) {
+                    // TODO: Dar um alerta quando o desconto for maior que 100%.
+                  } else {
+                    comprador.discount = int.parse(valueDiscount);
+                  }
                 },
-                
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20, bottom: 60),
-                child: InputWidget(label: "Vendedor", onChanged: (valueSalesman) {
+                child: InputWidget(
+                  label: "Vendedor",
+                  onChanged: (valueSalesman) {
                     comprador.salesman = valueSalesman;
-                   
                   },
-                  
                 ),
-              ),    
-
-              LargeButon(label: "Finalizar Compra", onPressed: () {
-                if (comprador.buyer == null || comprador.discount == null || comprador.passport == null || comprador.salesman == null || comprador.vehicle == null) {
-                  //por um alerta
-                } else {
-                  showProofPurchasePage();
-                }          
-              },),
+              ),
+              LargeButon(
+                label: "Finalizar Compra",
+                onPressed: () {
+                  if (comprador.buyer == null ||
+                      comprador.discount == null ||
+                      comprador.passport == null ||
+                      comprador.salesman == null ||
+                      comprador.vehicle == null) {
+                    // TODO: Adicionar um alerta para avisar que existem espaços em brancos.
+                  } else {
+                    showProofPurchasePage();
+                  }
+                },
+              ),
             ],
           ),
         ),
